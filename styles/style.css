@@ -1,0 +1,122 @@
+body{
+    font-family: 'Inconsolata', monospace;
+    margin-top: 100px;
+    background-color: #333;
+}
+
+.title{
+	color: #d9d9d9;
+    border-style: solid;
+    border-width: 0px 0px 0px 5px;
+    border-color: #2da18a;
+    padding-left: 15px;
+    font-weight: lighter;
+    font-size: 50px;
+}
+
+.title strong{
+	color: #2da18a;
+}
+
+#vjstyle.navbar-default{
+    background-color: #333;
+    border-color: #333;
+    box-shadow: 0px 2px 5px #333;
+    padding: 25px 0px;
+    font-size:20px;
+}
+
+#vjstyle.navbar-default .navbar-nav>.active>a, #vjstyle.navbar-default .navbar-nav>.active>a:focus, #vjstyle.navbar-default .navbar-nav>.active>a:hover{
+    color: #d9d9d9;
+    font-weight: 700;
+    background-color: transparent;
+}
+
+#vjstyle.navbar-default .navbar-nav>li>a:focus, #vjstyle.navbar-default .navbar-nav>li>a:hover{
+    color: #8d8d8d;
+}
+
+#vjstyle.navbar-default .navbar-collapse.in{
+    border-color: #fff;
+    margin-top: 25px;
+}
+
+#vjstyle.jumbotron{
+    background-color:#2da08a;
+    margin-bottom: 0px;
+}
+
+#vjstyle.container{
+	background-color: #fff0;
+    position: relative;
+    padding: 20px;
+    color: #2da08a;
+}
+
+#vjstyle h3{
+    background-color:#2da08a;
+    padding:15px;
+    font-weight: 700;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#vjstyle.colorrow{
+    background-color: #2da08a;
+    font-weight: 700;
+    height:65px;
+}
+
+#vjstyle .panel-default>.panel-heading>span{
+	background-color:#333;
+	color:#2da08a;
+    font-weight: 100;
+    font-size: 15px;
+    text-align: center;
+}
+
+#vjstyle .panel-default>.panel-heading{
+	background-color:#333;
+	color:#2da08a;
+    font-weight: 700;
+    font-size: 25px;
+    text-align: center;
+}
+
+.sidetitle{
+    border-style: solid;
+    border-width: 0px 0px 0px 5px;
+    border-color: #2da08a;
+    padding-left: 15px;
+    font-size: 25px;
+}
+
+.inline-img{
+	float: left;
+	padding: 25px;
+}
+
+#vjstyle.container.color{
+    width: 100%;
+    color: #000;
+    background-color: #333;
+    font-weight: 700;
+    margin: 0px;
+    padding: 10px;
+}
+
+.button {
+    /* width: 150px; */
+    height: 30px;
+    /* background: black; */
+    background-color: #2da08a;
+    border-radius: 10px;
+    color: black;
+    text-align: center;
+    padding: 5px;
+    margin: 5px;
+    display: inline-block;
+    box-shadow: 0px 1px 2px black;
+    cursor: pointer;
+}
+https://color.adobe.com/LE-grey-and-teal-color-theme-10074124/?showPublished=true

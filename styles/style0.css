@@ -1,0 +1,103 @@
+body{
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 100px;
+}
+.title{
+    border-style: solid;
+    border-width: 0px 0px 0px 5px;
+    border-color: #75cef5;
+    padding-left: 15px;
+    background-image: linear-gradient(to right,#0af,#00e090);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-weight: lighter;
+    font-size: 50px;
+}
+
+#vjstyle.navbar-default{
+    background-color: #fff;
+    border-color: #fff;
+    box-shadow: 0px 2px 5px #ddd;
+    padding: 25px 0px;
+}
+
+#vjstyle.navbar-default .navbar-nav>.active>a, #vjstyle.navbar-default .navbar-nav>.active>a:focus, #vjstyle.navbar-default .navbar-nav>.active>a:hover{
+    color: #fff;
+    background-image: linear-gradient(to right, rgba(11, 196, 255, 0.74),rgba(67, 243, 178, 0.77));
+    border-radius: 30px;
+    font-weight: 700;
+}
+
+#vjstyle.navbar-default .navbar-nav>li>a:focus, #vjstyle.navbar-default .navbar-nav>li>a:hover{
+    color: #fff;
+    background-image: linear-gradient(to right, rgba(11, 196, 255, 0.25),rgba(67, 243, 178, 0.25));
+    border-radius: 30px;
+}
+
+#vjstyle.navbar-default .navbar-collapse.in{
+    border-color: #fff;
+    margin-top: 25px;
+}
+
+#vjstyle.jumbotron{
+    background-color:white;
+    background-image: linear-gradient(to right,#0af,#00e090);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    width: 1170px;
+    margin: auto;
+}
+
+#vjstyle h3{
+    color: #fff;
+    background-image: linear-gradient(to right, rgba(11, 196, 255, 0.74),rgba(67, 243, 178, 0.77));
+    border-radius: 5px;
+    font-weight: 700;
+    padding: 10px;
+}
+
+#vjstyle.colorrow{
+    color: #fff;
+    background-image: linear-gradient(to right, rgba(11, 196, 255, 0.74),rgba(67, 243, 178, 0.77));
+    font-weight: 700;
+    height:65px;
+    margin-top: 15px;
+}
+
+.container.color{
+    width: 100%;
+    color: #fff;
+    background-image: linear-gradient(to right, rgba(11, 196, 255, 0.74),rgba(67, 243, 178, 0.77));
+    font-weight: 700;
+    margin: 10px;
+    padding: 10px;
+}
+.sidetitle{
+    border-style: solid;
+    border-width: 0px 0px 0px 5px;
+    border-color: #2da08a;
+    padding-left: 15px;
+    font-size: 25px;
+}
+
+.inline-img {
+    float: left;
+    padding: 25px;
+}
+
+.button{
+    /* width: 150px; */
+    height: 30px;
+    /* background: black; */
+    background-image: linear-gradient(to right, rgba(11, 196, 255, 0.74),rgba(67, 243, 178, 0.77));
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    margin: 5px;
+    display: inline-block;
+    box-shadow: 0px 1px 2px black;
+    cursor: pointer;
+}

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>theVJpage</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<nav id="vjstyle" class="navbar navbar-default navbar-fixed-top navbar-vj" data-spy="affix" data-offset-top="0">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#"><span class="title">Budget<strong>Kinect</strong></span></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href="#">Home</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Demos <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Demo 1-1</a></li>
+            <li><a href="#">Demo 1-2</a></li>
+            <li><a href="#">Demo 1-3</a></li>
+          </ul>
+        </li>
+        <li><a href="#">About me</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div id="vjstyle" class="jumbotron text-center">
+  <h2>An AI driven platform for motion controlled games with just your webcam*.</h2>
+  <p>*No accessories required</p> 
+</div>
+  
+<div id="vjstyle" class="container color">
+	<div id="vjstyle" class="container">
+	  <div class=" col-sm-12">
+	  	<div id="vjstyle" class="text-center">
+		  <h1>Demo</h1>
+		</div>
+	    <div id="vjstyle" class="app">
+        <ul class="nav nav-tabs">
+          <li class="active"><a data-toggle="tab" href="#nav-train">Train Actions</a></li>
+          <li><a data-toggle="tab" href="#nav-games">Play Games</a></li>
+        </ul>
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade in active" id="nav-train" role="tabpanel">
+            <div class="col-sm-4" id="actionsPane">
+              <div id="actionsHeader" class="col-sm-12">
+                <div class="col-sm-10 heading">Actions</div>
+                <div class="col-sm-2 corner" id="addClass">+</div>
+              </div>
+              <div id="actionsList" class="col-sm-12">
+                <div id="actionInfo">
+                  No classes added yet. Click on the "+" Button to add new classes to train.
+                </div>
+                <!-- <div id="trainBtn" class="button">Start Train</div> -->
+              </div>
+            </div>
+            <div class="col-sm-8">
+              <h3> Preview Actions Here </h3>
+              <video onclick="snapshot(this);" width=224 height=224 id="video" autoplay></video>
+              <div>
+                <div id="cameraTrigger" class="button">Toggle WebCam</div>
+                <div id="predictBtn" class="button">Predict!</div>
+                <span class="prediction" id="predict"></span>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="nav-games" role="tabpanel">
+            test
+            <div class="col-sm-12">
+              <canvas style="background: white;" id="viewport"></canvas>
+            </div>
+          </div>
+        </div>
+	    </div>
+	  </div>
+	</div>
+</div>
+<footer id="vjstyle" class="colorrow">
+  this is where teh footer goes
+</footer>
+
+<div id="clonerDiv" style="display: none;">
+  <div id="classContainer">
+    <div id="tc_i" class="classHeader">Train Class i</div>
+    <canvas id="tc_i_preview" class="actionThumb" width="224" height="224"></canvas>
+  </div>
+</div>
+</body>
+</html>
+
+<style>
+
+  .tab-pane{
+    display: inline-block;
+    position: absolute;
+  }
+	.app {
+		width: 100%;
+		background-color: white;
+		border-radius: 10px;
+		box-shadow: 0px 1px 2px black;
+		color: black;
+		height: 700px;
+    text-align: center;
+
+	}
+
+  #actionsPane {
+    height: 100%;
+    padding-top: 20px;
+  }
+
+  #actionsList {
+    height: 80%;
+    overflow: scroll;
+  }
+
+  .actionThumb{
+    border: solid 5px black;
+    border-radius: 10px;
+    box-shadow: 0px 1px 2px black;
+    display: block;
+    margin: auto;
+  }
+
+  #actionsHeader {
+    border-radius: 5px;
+    background: #2e9f8a;
+    padding: 8px;
+  }
+
+  #actionsHeader>.corner{
+    border: solid 1px black;
+    /* width: 100%; */
+    /* background: black; */
+    height: 40px;
+    /*background-image:  url("train.png");*/
+    cursor: pointer;
+    border-radius: 15px;
+    box-shadow: black 0px 1px 2px;
+    padding: 10px 0px;
+  }
+
+  #actionsHeader>.heading{
+    font-size: 25px;
+  }
+
+  div[role="tabpanel"] {
+    overflow: scroll;
+    width: 97.4%;
+    height: 86%;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: inset black 0px 0px 10px 0px;
+  }
+
+  .nav-tabs {
+    background: #2e9f8a;
+    border-radius: 10px 10px 0px 0px;
+  }
+  .nav-tabs a {
+    color: white;
+  }
+
+  .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    background: #333;
+    color: white;
+    border-radius: 10px 10px 0px 0px;
+  }
+
+  .nav-tabs>li>a:hover {
+    color: black;
+    background: #2e9f8a; 
+  }
+
+  #actionInfo {
+    width: 100%;
+    height: 500px;
+    font-size: 30px;
+    padding: 150px 0px;
+    color: #ababab;
+  }
+
+  #classContainer {
+    margin: 30px 35px;
+    background: #2e9f8a;
+    border-radius: 20px;
+  }
+
+  .classHeader{
+    font-size: 20px;
+    padding: 10px;
+  }
+</style>
+<script src="scripts/ml.js"></script>
