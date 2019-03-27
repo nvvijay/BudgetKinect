@@ -165,6 +165,7 @@ game.setExampleHandler(label => {
 });
 
 async function init() {
+  // TODO: make game dynamic
   new snake.Snake("viewport").init();
   try {
     await webcam.setup();
@@ -204,7 +205,11 @@ async function init() {
     ctx.font = "20px Arial";
     ctx.fillText("Click Me To Train This", 10, 100);
     ctx.fillText("Class!", 85, 130);
-    
+  });
+
+  jQuery(".actionThumb").on("click", function(e){
+    let id = this.closest("canvas").id;
+    console.log("clicked id :", id);
   });
 }
 
