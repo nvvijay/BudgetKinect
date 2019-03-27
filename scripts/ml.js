@@ -193,8 +193,18 @@ async function init() {
 
     // Add a train Class
     let clone = jQuery("#clonerDiv").children().clone(true, true);
+    NUM_CLASSES += 1;
+    clone.find("#tc_i")[0].innerHTML = "Class "+NUM_CLASSES;
+    clone.find("#tc_i").attr("id", "tc_"+NUM_CLASSES);
+    clone.find("#tc_i_preview").attr("id", "tc_"+NUM_CLASSES+"_preview");
     jQuery("#actionsList").append(clone);
-    console.log(clone);
+
+    var canvas = document.getElementById("tc_"+NUM_CLASSES+"_preview");
+    var ctx = canvas.getContext("2d");
+    ctx.font = "20px Arial";
+    ctx.fillText("Click Me To Train This", 10, 100);
+    ctx.fillText("Class!", 85, 130);
+    
   });
 }
 
