@@ -10,8 +10,8 @@ let food;
 
 export function Snake(element){
 	console.log("got element as :", element);
-	this.x = 0;
-	this.y = 0;
+	this.x = 300;
+	this.y = 300;
 	this.xspeed = 1;
 	this.yspeed = 0;
 	this.total = 0;
@@ -87,7 +87,8 @@ export function Snake(element){
 		canvas.height = 500;
 		canvas.width = 700;
 		var ctx = canvas.getContext('2d');
-		s = new Snake("viewport");
+		// s = new Snake("viewport");
+		s = this;
 		
 		globalctx = ctx;
 		var cols = Math.floor(500/scl);

@@ -72,7 +72,7 @@
             </div>
             <div class="col-sm-8">
               <h3> Preview Actions Here </h3>
-              <video onclick="snapshot(this);" width=224 height=224 id="video" autoplay></video>
+              <video onclick="snapshot(this);" width=224 height=224 id="video" autoplay class="videoPane"></video>
               <div>
                 <div id="cameraTrigger" class="button">Toggle WebCam</div>
                 <div id="predictBtn" class="button">Predict!</div>
@@ -81,8 +81,25 @@
             </div>
           </div>
           <div class="tab-pane fade" id="nav-games" role="tabpanel">
-            test
-            <div class="col-sm-12">
+            <h2> Choose Game to Play</h2>
+            <div class="list-group" id="gameMenu">
+              <a class="list-group-item list-group-item-action flex-column align-items-start" id="snakeGame">
+                <div class="d-flex w-100 justify-content-between">
+                  <h3 class="mb-1">Classic Snake</h3>
+                  <small>5 actions needed</small>
+                </div>
+                <p class="mb-1">Control a snake and eat food to grow as big as possible.</small>
+              </a>
+              <a class="list-group-item list-group-item-action flex-column align-items-start" id="birdGame">
+                <div class="d-flex w-100 justify-content-between">
+                  <h3 class="mb-1">Fly Bird Fly</h3>
+                  <small class="text-muted">2 actions needed</small>
+                </div>
+                <p class="mb-1">Fly a bird through a never ending tunnel as far as possible.</p>
+                <small class="text-muted">It is not as easy as it looks.</small>
+              </a>
+            </div>
+            <div class="col-sm-12" id="gameWindow" style="display:none;">
               <canvas style="background: white;" id="viewport"></canvas>
             </div>
           </div>
@@ -201,11 +218,34 @@
     margin: 30px 35px;
     background: #2e9f8a;
     border-radius: 20px;
+    width: 35%;
   }
 
   .classHeader{
     font-size: 20px;
     padding: 10px;
+  }
+
+  .videoPane{
+    width: 450px; 
+    height: 450px;
+    border-radius: 40%;
+    border: solid #333 10px;
+  }
+
+  a.list-group-item{
+    background-color: white;
+    color: black;
+  }
+
+  a.list-group-item:hover{
+    background-color: #333;
+    border-color: #000;
+    color: white;
+  }
+
+  #gameMenu {
+    padding: 45px;
   }
 </style>
 <script src="scripts/ml.js"></script>

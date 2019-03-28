@@ -188,9 +188,13 @@ async function init() {
 
     var canvas = document.getElementById("tc_"+NUM_CLASSES+"_preview");
     var ctx = canvas.getContext("2d");
+    ctx.rect(0, 0, 224, 224);
+    ctx.fillStyle = "#333";
+    ctx.fill();
+    ctx.fillStyle = "white";
     ctx.font = "20px Arial";
-    ctx.fillText("Click Me To Train This", 10, 100);
-    ctx.fillText("Class!", 85, 130);
+    ctx.fillText("Click Me To Train This", 15, 110);
+    ctx.fillText("Class!", 90, 140);
 
     jQuery("#addClass").attr("disabled", true); // @TODO: Disable AddClasses Button
     controller_dataset.setnumClasses(NUM_CLASSES);
@@ -212,6 +216,11 @@ async function init() {
     });
 
     predict();
+  });
+
+  jQuery("#snakeGame").on("click", function(){
+    jQuery("#gameMenu").hide();
+    jQuery("#gameWindow").show();
   });
 
 }

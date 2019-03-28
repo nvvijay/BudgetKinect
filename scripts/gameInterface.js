@@ -16,11 +16,16 @@ export class gameInterface {
     }
 
     initGame(game) {
-        const gameMap = {
-            'snake': new snake.Snake('viewport'),
-            'flyBird': new bird.FlyBirdFly('viewport'),
+        // const gameMap = {
+        //     'snake': new snake.Snake('viewport'),
+        //     'flyBird': new bird.FlyBirdFly('viewport'),
+        // }
+        if(game == "snake"){
+            this.game = new snake.Snake("viewport");
+        }else if(game == "flyBird"){
+            this.game = new bird.FlyBirdFly("viewport");
         }
-        this.game = gameMap[game];
+        // this.game = gameMap[game];
         this.game.init();
         let gameActions = this.game.getActions();
         return this;
