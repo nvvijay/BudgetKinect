@@ -16,6 +16,12 @@ export function Snake(element){
 	this.yspeed = 0;
 	this.total = 0;
 	this.tail = [];
+	this.actions = ["UP", "RIGHT", "DOWN", "WEST"];
+
+	this.getActions = () => {
+		return this.actions;
+	};
+
 
 	this.dist = function(x1,y1, x2,y2){
 		return Math.abs(x2-x1) + Math.abs(y2-y1);
@@ -92,7 +98,8 @@ export function Snake(element){
 		animate(ctx);
 	}
 
-	this.takeAction = function(direction){
+	this.takeAction = function(direction) {
+		
 		if(direction == "PAUSE"){
 			if(isPaused){ // unpause
 				console.log("game unpaused");
@@ -111,23 +118,30 @@ export function Snake(element){
 		if(isPaused){
 			return;
 		}
+
+		console.log('direction: ', direction=="UP");
+
 		if(direction == "UP"){
+			console.log("up", this);
 			if(this.yspeed != 1){
 				this.yspeed = -1;
 				this.xspeed = 0;
 			}
 		}else if(direction == "DOWN"){
+			console.log("dn");
 			if(this.yspeed != -1){
 				this.yspeed = 1;
 				this.xspeed = 0;
 			}
 		}
 		else if(direction == "LEFT"){
+			console.log("left");
 			if(this.xspeed != 1){
 				this.yspeed = 0;
 				this.xspeed = -1;
 			}
 		}else if(direction == "RIGHT"){
+			console.log("right");
 			if(this.xspeed != -1){
 				this.yspeed = 0;
 				this.xspeed = 1;

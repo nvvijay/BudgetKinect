@@ -25,13 +25,17 @@ export class ControllerDataset {
     this.numClasses = numClasses;
   }
 
+  setnumClasses(numClasses) {
+    this.numClasses = numClasses;
+  } 
+
   /**
    * Adds an example to the controller dataset.
    * @param {Tensor} example A tensor representing the example. It can be an image,
    *     an activation, or any other type of Tensor.
    * @param {number} label The label of the example. Should be a number.
    */
-  addExample(example, label) {
+  addExample(example, label, numClasses) {
     // One-hot encode the label.
     const y = tf.tidy(
         () => tf.oneHot(tf.tensor1d([label]).toInt(), this.numClasses));

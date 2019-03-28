@@ -28,14 +28,20 @@ export function FlyBirdFly(element){
 	canvas.height = 500;
 	canvas.width = 700;
 	var ctx = canvas.getContext('2d');
-	if(!isTrain){
-		animate(ctx);
-	}else{
-		resetgamestate();
-		isNewGame = false;
-	}
+	
 	globalctx = ctx;
+	this.init = function() {
+		console.log("Fly Bird");
+		
+		if(!isTrain){
+			animate(ctx);
+		}else{
+			resetgamestate();
+			isNewGame = false;
+		}
+	}
 }
+
 
 export function pressButton(){
 	yAcc = 10;
