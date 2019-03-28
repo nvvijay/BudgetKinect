@@ -1,13 +1,13 @@
 import {Webcam} from "./webcam";
 import {ControllerDataset} from "./controller_dataset";
-import * as game from "./game";
-import * as snake from "./games/snake"
+import * as handlers from "./handlers";
+import * as gameInterface from "./gameInterface";
 import * as tf from "@tensorflow/tfjs";
 
 let NUM_CLASSES = 0;
-
+let GAME;
 const webcam = new Webcam(document.querySelector("video"));; 
-const controller_dataset = new ControllerDataset(NUM_CLASSES);; 
+const controller_dataset = new ControllerDataset(NUM_CLASSES);
 let truncatedMobileNet;
 // Loads mobilenet and returns a model that returns the internal activation
 // we'll use as input to our classifier model.
@@ -126,25 +126,8 @@ async function predict() {
     jQuery("#predict")[0].innerHTML = classId;
 
     if(classId != 0){
-      let dir = "";
-      switch(classId) {
-      case 1:
-        dir = "UP";
-        break;
-      case 2:
-        dir = "RIGHT";
-        break;
-      case 3:
-        dir = "DOWN";
-        break;
-      case 4:
-        dir = "LEFT";
-        break;
-      default:
-        dir = "";
-      }
-      console.log("taking action ", dir);
-      snake.takeAction(dir);
+      // snake.takeAction(dir);
+      GAME.takeAction(classId);
       await sleep(250);
     }
     
@@ -154,19 +137,20 @@ async function predict() {
   // ui.donePredicting();
 }
 
-game.setExampleHandler(label => {
+handlers.addClassHandler(label => {
   tf.tidy(() => {
     const img = webcam.capture();
     console.log("training label: ", label);
     controller_dataset.addExample(truncatedMobileNet.predict(img), label);
     // Draw the preview thumbnail.
-    game.drawThumb(img, label);
+    handlers.drawThumb(img, label);
   });
 });
 
 async function init() {
   // TODO: make game dynamic
-  new snake.Snake("viewport").init();
+  // new snake.Snake("viewport").init();
+
   try {
     await webcam.setup();
     webcam.adjustVideoSize(224,224);
@@ -182,11 +166,11 @@ async function init() {
   // quick.
   tf.tidy(() => truncatedMobileNet.predict(webcam.capture()));
 
-  // jQuery("#trainBtn").on("click", ()=>train());
-  // jQuery("#predictBtn").on("click", ()=>{
-  //   isPredicting = !isPredicting;
-  //   predict();
-  // });
+  jQuery("#trainBtn").on("click", ()=>train());
+  jQuery("#predictBtn").on("click", ()=>{
+    isPredicting = !isPredicting;
+    predict();
+  });
 
   jQuery("#addClass").on("click", function(e) {
     // Hide the info div when num classes > 0
@@ -195,9 +179,11 @@ async function init() {
     // Add a train Class
     let clone = jQuery("#clonerDiv").children().clone(true, true);
     NUM_CLASSES += 1;
+    const btnId = `tc_${NUM_CLASSES}`;
+    const previewBtnId = `tc_${NUM_CLASSES}_preview`;
     clone.find("#tc_i")[0].innerHTML = "Class "+NUM_CLASSES;
-    clone.find("#tc_i").attr("id", "tc_"+NUM_CLASSES);
-    clone.find("#tc_i_preview").attr("id", "tc_"+NUM_CLASSES+"_preview");
+    clone.find("#tc_i").attr("id", btnId);
+    clone.find("#tc_i_preview").attr("id", previewBtnId);
     jQuery("#actionsList").append(clone);
 
     var canvas = document.getElementById("tc_"+NUM_CLASSES+"_preview");
@@ -205,12 +191,29 @@ async function init() {
     ctx.font = "20px Arial";
     ctx.fillText("Click Me To Train This", 10, 100);
     ctx.fillText("Class!", 85, 130);
+
+    jQuery("#addClass").attr("disabled", true); // @TODO: Disable AddClasses Button
+    controller_dataset.setnumClasses(NUM_CLASSES);
+    let previewBtn = document.getElementById(previewBtnId);
+    previewBtn.addEventListener('mousedown', function(e) { handlers.handler(this)});
+    previewBtn.addEventListener('mouseup', () => handlers.handler(this));
   });
 
-  jQuery(".actionThumb").on("click", function(e){
-    let id = this.closest("canvas").id;
-    console.log("clicked id :", id);
+  jQuery("#PlayTab").on("click", function() {
+    console.log('games strted: ', gameInterface);
+    GAME = new gameInterface.gameInterface();
+    GAME.initGame('snake');
+    // GAME.initGame('flyBird');
+    GAME.mapLabelToAction({
+      1: "UP",
+      2: "RIGHT",
+      3: "DOWN",
+      4: "LEFT",
+    });
+
+    predict();
   });
+
 }
 
 // Initialize the application.

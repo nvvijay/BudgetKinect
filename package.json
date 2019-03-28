@@ -11,7 +11,8 @@
   "license": "MIT",
   "dependencies": {
     "@tensorflow/tfjs": "^1.0.0",
-    "babel-polyfill": "^6.26.0"
+    "babel-polyfill": "^6.26.0",
+    "games": "0.0.7"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
