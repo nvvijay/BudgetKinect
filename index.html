@@ -68,6 +68,10 @@
                   No classes added yet. Click on the "+" Button to add new classes to train.
                 </div>
                 <div id="trainBtn" class="button">Start Train</div>
+                <div id="trainIndicator">
+                  <div id="loadingBar"></div>
+                  Loss: <span id="lossField"></span>
+                </div>
               </div>
             </div>
             <div class="col-sm-8">
@@ -246,6 +250,17 @@
 
   #gameMenu {
     padding: 45px;
+  }
+
+  #loadingBar{
+    background: #333; 
+    height: 20px; 
+    width:0px;
+    transition: width 0.1s;
+    border-radius: 20px;
+    text-align: right;
+    padding-right: 10px;
+    color:white;
   }
 </style>
 <script src="scripts/ml.js"></script>

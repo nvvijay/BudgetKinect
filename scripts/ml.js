@@ -79,6 +79,9 @@ async function train() {
         `Batch size is 0 or NaN. Please choose a non-zero fraction.`);
   }
 
+  let num_batches = Math.ceil(controller_dataset.xs.shape[0]/ batchSize) *20;
+  let curr_batch = 0;
+
   // Train the model! Model.fit() will shuffle xs & ys so we don't have to.
   model.fit(controller_dataset.xs, controller_dataset.ys, {
     batchSize,
@@ -86,8 +89,13 @@ async function train() {
     epochs: 20,
     callbacks: {
       onBatchEnd: async (batch, logs) => {
+        curr_batch += 1;
         // ui.trainStatus('Loss: ' + logs.loss.toFixed(5));
         console.log("loss: ", logs.loss);
+        let width_val = curr_batch/num_batches*100;
+        jQuery("#loadingBar").css("width", width_val+"%");
+        jQuery("#loadingBar")[0].innerHTML = Math.floor(width_val)+"%";
+        jQuery("#lossField")[0].innerHTML = logs.loss;
       }
     }
   });
