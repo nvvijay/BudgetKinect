@@ -4,7 +4,7 @@
 A platform created using TF.js to use gestures to control aspects of the browser. 
 Uses transfer learning on MobilNet models to be efficient on low powered devices.
 
-![Train Screen](resources/preview.jpg)
+![Train Screen](resources/preview.png)
 
 
 <b>Steps to run:</b>
